@@ -1,8 +1,4 @@
-import openai
-import requests
-
 from twitter.scraper import Scraper
-# import requests
 import pandas as pd
 import streamlit as st
 
@@ -25,8 +21,6 @@ while ".com" not in url:
 email = st.secrets["email"]
 username = st.secrets["username"]
 password = st.secrets["password"]
-
-st.write(username)
 
 scraper = Scraper(email, username, password)
 
