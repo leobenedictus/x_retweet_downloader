@@ -22,7 +22,9 @@ while "twitter.com" not in url:
      continue
 
 ## sign-in with credentials
-email, username, password = st.secrets["email", "username", "password"]
+email = st.secrets["email"]
+username = st.secrets["username"]
+password = st.secrets["password"]
 
 scraper = Scraper(email, username, password)
 

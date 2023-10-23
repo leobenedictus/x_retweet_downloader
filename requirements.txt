@@ -1,6 +1,5 @@
 streamlit
 pandas
 numpy
-twitter-api-client==0.5.7
-openai
+twitter-api-client
 # requests
