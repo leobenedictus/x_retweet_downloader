@@ -26,7 +26,7 @@ email = st.secrets["email"]
 username = st.secrets["username"]
 password = st.secrets["password"]
 
-st.write(email)
+st.write(username)
 
 scraper = Scraper(email, username, password)
 
