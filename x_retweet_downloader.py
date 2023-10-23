@@ -53,7 +53,7 @@ df = pd.DataFrame(rts_dict)
 df_sorted = df.sort_values(by='followers', ascending=False)
 
 # access mps data and create list of mps by twitter handle 
-mps_df = pd.read_csv("mp_twitters.csv")
+mps_df = pd.read_csv("mp_twitters2.csv")
 mps = [name for name in mps_df.twitter_handle if name != "Unknown field"] 
 
 # add column to dataframe with test for mp
