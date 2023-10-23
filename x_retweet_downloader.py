@@ -1,4 +1,3 @@
-import facebook
 import openai
 import requests
 
