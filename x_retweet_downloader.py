@@ -1,5 +1,20 @@
 from twitter.scraper import Scraper
 import pandas as pd
+import streamlit as st
+
+
+# WARNING
+
+st.header("X retweet downloader")
+
+# tweet url needs to have the id number at the end (you can see this url by clicking on the date of the tweet)
+url = st.text_input("", "tweet url")
+
+st.write("Currently does not include quote-tweets. Please check reweets before using. ")
+
+# Waits for an input with a tweet 
+while "twitter.com" not in url:
+     continue
 
 ## sign-in with credentials
 email, username, password = st.secrets["email", "username", "password"]
@@ -7,8 +22,7 @@ email, username, password = st.secrets["email", "username", "password"]
 scraper = Scraper(email, username, password)
 
 # receive tweet address and strip off any query string
-tweet_address = "https://twitter.com/TheEconomist/status/1716394040546181185"
-tweet_address = tweet_address.split("?")[0]
+tweet_address = url.split("?")[0]
 
 # get tweet id
 tweet_id = tweet_address.split("/")[-1]
