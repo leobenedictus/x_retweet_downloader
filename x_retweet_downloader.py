@@ -13,18 +13,20 @@ import streamlit as st
 st.header("X retweet downloader")
 
 # tweet url needs to have the id number at the end (you can see this url by clicking on the date of the tweet)
-url = st.text_input("", "tweet url")
+url = st.text_input("", "")
 
 st.write("Currently does not include quote-tweets. Please check reweets before using. ")
 
 # Waits for an input with a tweet 
-while "twitter.com" not in url:
+while ".com" not in url:
      continue
 
 ## sign-in with credentials
 email = st.secrets["email"]
 username = st.secrets["username"]
 password = st.secrets["password"]
+
+st.write(email)
 
 scraper = Scraper(email, username, password)
 
