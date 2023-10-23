@@ -85,4 +85,25 @@ def mp_test(name):
 df_sorted["MP"] = df_sorted.screen_name.apply(mp_test)
 
 # create csv file with dataframe in it
-df_sorted.to_csv(f"{tweet_id}.csv")
+# df_sorted.to_csv(f"{tweet_id}.csv")
+
+
+st.write("Your data is coming!")
+
+@st.cache_data
+def convert_df(df_sorted):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df_sorted.to_csv().encode('utf-8')
+
+excel = convert_df(df_sorted)
+
+st.download_button(
+    label="Download Excel file",
+    data=excel,
+    file_name=f"re_tweets{tweet_id}.xlsx",
+    mime='text/csv',
+)
+
+st.write("Fun fact: The long number in the file name is the tweet id. If you paste it after twitter.com/anyone/status/ it'll take you back to the original tweet!")
+
+st.balloons()
