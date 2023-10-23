@@ -1,4 +1,4 @@
-from twitter.scraper import Scraper
+from twitter-api-client import Scraper
 import pandas as pd
 import streamlit as st
 
