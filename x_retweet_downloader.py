@@ -1,7 +1,12 @@
+import facebook
+import openai
+import requests
+
 from twitter.scraper import Scraper
 # import requests
 import pandas as pd
 import streamlit as st
+
 
 
 # WARNING
