@@ -87,16 +87,14 @@ df_sorted["MP"] = df_sorted.screen_name.apply(mp_test)
 # create csv file with dataframe in it
 # df_sorted.to_csv(f"{tweet_id}.csv")
 
-
-st.write("Your data is coming!")
-
-@st.cache_data
-
 file_name=f"re_tweets{tweet_id}.xlsx"
 
+@st.cache_data
 def convert_df(df_sorted):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     return df_sorted.to_excel(file_name, index=False, engine='openpyxl')
+
+
 
 excel = convert_df(df_sorted)
 
