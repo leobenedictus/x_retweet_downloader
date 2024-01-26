@@ -2,7 +2,7 @@ from twitter.scraper import Scraper
 import pandas as pd
 import streamlit as st
 import io
-import xlsxwriter
+import openpyxl
 
 
 
@@ -90,28 +90,20 @@ df_sorted["MP"] = df_sorted.screen_name.apply(mp_test)
 
 st.write("Your data is coming!")
 
-@st.cache
+@st.cache_data
+
+file_name=f"re_tweets{tweet_id}.xlsx"
+
 def convert_df(df_sorted):
-    # Create a BytesIO buffer
-    output = io.BytesIO()
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df_sorted.to_excel(file_name, index=False, engine='openpyxl')
 
-    # Write the DataFrame to the buffer
-    with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
-        df_sorted.to_excel(writer, index=False)  # Set index=False if you don't want to include row indices in the Excel file
-        writer.save()
-
-    # Seek to the start of the stream
-    output.seek(0)
-
-    return output.getvalue()  # Return the contents of the buffer
-
-# Assuming df_sorted is your DataFrame and tweet_id is defined
 excel = convert_df(df_sorted)
 
 st.download_button(
     label="Download Excel file",
     data=excel,
-    file_name=f"re_tweets{tweet_id}.xlsx",
+    file_name=file_name,
     mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
 )
 
