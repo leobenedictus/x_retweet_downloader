@@ -2,6 +2,7 @@ from twitter.scraper import Scraper
 import pandas as pd
 import streamlit as st
 import io
+import xlsxwriter
 
 
 
