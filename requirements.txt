@@ -1,7 +1,6 @@
 streamlit
 pandas
 numpy
-io
 openpyxl
 twitter-api-client
 # requests
