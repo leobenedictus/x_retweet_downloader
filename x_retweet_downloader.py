@@ -91,9 +91,11 @@ st.write("Your data is coming!")
 @st.cache_data
 def convert_df(df_sorted):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-    return df_sorted.to_csv().encode('utf-8')
+    return df_sorted.to_excel().encode('utf-8')  # Set index=False if you don't want to include row indices in the Excel file
 
-excel = convert_df(df_sorted)
+    # return df_sorted.to_csv().encode('utf-8')
+
+# excel = convert_df(df_sorted)
 
 st.download_button(
     label="Download Excel file",
