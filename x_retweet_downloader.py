@@ -18,9 +18,9 @@ while ".com" not in url:
      continue
 
 ## sign-in with credentials
-st.secrets["email"]
-st.secrets["username"]
-st.secrets["password"]
+email = st.secrets["email"]
+username = st.secrets["username"]
+password = st.secrets["password"]
 
 scraper = Scraper(email, username, password)
 
