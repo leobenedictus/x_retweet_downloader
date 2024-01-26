@@ -2,5 +2,6 @@ streamlit
 pandas
 numpy
 io
+xlsxwriter
 twitter-api-client
 # requests
