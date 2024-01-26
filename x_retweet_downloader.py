@@ -95,7 +95,7 @@ def convert_df(df_sorted):
 
     # return df_sorted.to_csv().encode('utf-8')
 
-# excel = convert_df(df_sorted)
+excel = convert_df(df_sorted)
 
 st.download_button(
     label="Download Excel file",
